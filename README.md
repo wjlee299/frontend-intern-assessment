@@ -1,23 +1,23 @@
 # 🚀 Akro – Technical Assessment (Frontend Intern)
 
-Hello! We are excited to have you participate in our technical assessment. you will be implementing a simple agentic workflow user interface, which should not take more than 4-6 hours in total.
+Hello! We are excited to have you participate in our technical assessment. You will be implementing a simple agentic workflow user interface, which should not take more than 4-6 hours in total.
 
 To ensure a fair evaluation process, please adhere to the following instructions:
 
 ## 📋 Instructions
 
 Fork this repository to your own Github account, and push your code there as you make progress.
-During submission, you will be submitting the Github link to your repository.
+During submission, you will be submitting the Github link of your repository for our review.
 
-- You should use React to design and implement the design provided.
+- You should use Next.js/React to design and implement the design provided.
 - Typescript is preferred over Javascript.
 - All work must be original — no cheating, plagiarism, or collaboration.
-- You may use AI-assistance in **_limited_** amounts, i.e. no screenshotting and sending it to lovable/v0. We'll know!
+- You _may_ use AI-assistance in **_limited_** amounts, i.e. no screenshotting and sending it to Claude. We'll know!
 - Submit within the deadline; late submissions may not be accepted.
 
 
 ## 📖 Context
-You are building a core feature for **Aroga**, an agentic report writer that automates data extraction and content generation..
+You are building a core feature for **Aroga**, an agentic report writer that automates data extraction and content generation.
 Users build custom agentic workflows by selecting and sequencing action steps (e.g., ✍️ extract, 📑 summarize, 📝 write) from a selection menu.
 Workflows follow a numbered sequential structure (1 → 2 → 3).
 
@@ -41,11 +41,15 @@ Your implementation should minimally include:
 Design and implement an **action configuration menu** after an action (e.g., "extract") is selected.
 This menu should allow users to define parameters for the chosen action.
 
-This is deliberately open-ended and is up to you to decide what this should look like, and be. Some suggestions for you:
+This is deliberately open-ended and is up to you to decide what this should look like, and be.
+Some suggestions for you:
 - Display configuration options dynamically.
 - Provide input fields (text boxes, dropdowns, toggles).
 - Ensure responsive and accessible UI.
 - Keep consistent with Task 1’s design.
+
+Alternatively, you may implement any additional feature that you deem fit for such an application in addition to/instead of the above-mentioned action configuration menu.
+
 
 ---
 
