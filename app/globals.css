@@ -206,7 +206,7 @@ body {
   left: 50%; 
   transform: translateX(-50%);
   width: 2.5px;
-  height: 100%; 
+  height: 98%; 
   background: var(--extended-dark-blue-100); 
   z-index: -1;
 }

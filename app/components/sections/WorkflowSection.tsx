@@ -9,7 +9,7 @@ const WorkflowSection = () => {
   const { workflowPipeline } = useWorkflowContext();
 
   return (
-    <div className="connector-wrapper relative flex w-[45%] flex-col gap-6">
+    <div className="connector-wrapper relative flex w-[45%] h-fit flex-col gap-6">
       <TriggerScheduleBox></TriggerScheduleBox>
       {workflowPipeline.map((workflowStep, index) => (
         <WorkflowStepBox

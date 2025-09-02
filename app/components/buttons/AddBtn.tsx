@@ -5,11 +5,10 @@ import PlusIcon from "@/app/assets/icons/plus.svg";
 
 interface AddBtnProps {
   label: string;
-  showLabel: boolean;
   action: string;
 }
 
-const AddBtn: React.FC<AddBtnProps> = ({ label, showLabel, action }) => {
+const AddBtn: React.FC<AddBtnProps> = ({ label, action }) => {
   const { openAddStepMenu, openScheduleConfigMenu } = useConfigMenuContext();
 
   const onClickBtn = () => {
