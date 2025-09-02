@@ -6,7 +6,8 @@ export interface ConfigOption {
 
 // the different kinds of config menu options
 export interface TextConfigOption extends ConfigOption {
-  textInput: string;
+    textInput: string;
+    placeholderText: string;
 }
 
 export interface SelectConfigOption extends ConfigOption {

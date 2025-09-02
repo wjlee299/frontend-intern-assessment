@@ -3,7 +3,14 @@ import SummariseTaskIcon from "@/app/assets/icons/task-summarise.svg";
 import WriteTaskIcon from "@/app/assets/icons/task-write.svg";
 import TaskActionIcon from "@/app/assets/icons/action-task.svg";
 import SearchActionIcon from "@/app/assets/icons/action-search.svg";
-import { ConfigOption } from "./ConfigOptionsModel";
+import {
+  ConfigOption,
+  TextConfigOption,
+  SelectConfigOption,
+  CheckboxConfigOption,
+  SliderConfigOption,
+  ToggleConfigOption,
+} from "./ConfigOptionsModel";
 
 // ACTIONS & TASKS CLASSES DECLARATION
 interface Action {
@@ -33,12 +40,25 @@ export class SearchAction implements Action {
 
 export class ExtractTask extends TaskAction {
   constructor() {
-    super(
-      "Extract",
-      "Get data from Word, PDF or PPT files",
-      ExtractTaskIcon,
-      [],
-    );
+    super("Extract", "Get data from Word, PDF or PPT files", ExtractTaskIcon, [
+      {
+        optionName: "Prompt",
+        textInput: "",
+        placeholderText: "Write your prompt here.",
+      } as TextConfigOption,
+      {
+        optionName: "Output Format",
+        selectOptions: ["Plain Text", "Comma-Separated Values (CSV)"],
+        selectedOption: "Plain Text",
+      } as SelectConfigOption,
+      {
+        optionName: "Output Length (Word Count)",
+        defaultValue: 150,
+        min: 50,
+        max: 1500,
+        step: 50,
+      } as SliderConfigOption,
+    ]);
   }
 }
 
@@ -48,18 +68,49 @@ export class SummariseTask extends TaskAction {
       "Summarise",
       "Condense text to your preferred length",
       SummariseTaskIcon,
-      [],
+      [
+        {
+          optionName: "Summary Approach",
+          selectOptions: ["Abstract", "Extractive", "Hybrid"],
+          selectedOption: "Abstract",
+        } as SelectConfigOption,
+        {
+          optionName: "Tone",
+          selectOptions: ["Professional", "Formal", "Casual", "Informative"],
+          selectedOption: "Professional",
+        } as SelectConfigOption,
+        {
+          optionName: "Output Length (Word Count)",
+          defaultValue: 150,
+          min: 50,
+          max: 1500,
+          step: 50,
+        } as SliderConfigOption,
+      ],
     );
   }
 }
 
 export class WriteTask extends TaskAction {
   constructor() {
-    super(
-      "Write",
-      "Draft sentences, paragraphs or sections",
-      WriteTaskIcon,
-      [],
-    );
+    super("Write", "Draft sentences, paragraphs or sections", WriteTaskIcon, [
+      {
+        optionName: "Prompt",
+        textInput: "",
+        placeholderText: "Write your prompt here.",
+      } as TextConfigOption,
+      {
+        optionName: "Tone",
+        selectOptions: ["Professional", "Formal", "Casual", "Informative"],
+        selectedOption: "Professional",
+      } as SelectConfigOption,
+      {
+        optionName: "Output Length (Word Count)",
+        defaultValue: 150,
+        min: 50,
+        max: 1500,
+        step: 50,
+      } as SliderConfigOption,
+    ]);
   }
 }
