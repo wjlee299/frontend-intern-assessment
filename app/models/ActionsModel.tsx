@@ -18,6 +18,7 @@ export interface Action {
   actionDesc: string;
   stepName: string; // string displayed in the pipeline step box
   icon: React.ReactNode;
+  configOptions: ConfigOption[];
 }
 
 // task itself has no config options

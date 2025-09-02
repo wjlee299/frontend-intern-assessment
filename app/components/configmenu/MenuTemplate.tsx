@@ -3,10 +3,11 @@ import CrossIcon from "@/app/assets/icons/x.svg";
 import { useConfigMenuContext } from "@/app/contexts/ConfigMenuContext";
 
 interface MenuTemplateProps {
-  menuTitle: string;
+    menuTitle: string;
+    children?: React.ReactNode; 
 }
 
-const MenuTemplate: React.FC<MenuTemplateProps> = ({ menuTitle }) => {
+const MenuTemplate: React.FC<MenuTemplateProps> = ({ menuTitle, children }) => {
   const { closeMenu } = useConfigMenuContext();
 
   return (
@@ -17,7 +18,9 @@ const MenuTemplate: React.FC<MenuTemplateProps> = ({ menuTitle }) => {
           <CrossIcon className="h-6 w-6 rounded-sm p-0.5 text-neutral-n500 hover:bg-neutral-n30 transition-colors"></CrossIcon>
         </button>
       </div>
-      <div className="flex w-full justify-center py-4"></div>
+          <div className="flex flex-col gap-3 p-4 w-full justify-center">
+              {children}
+      </div>
     </div>
   );
 };
