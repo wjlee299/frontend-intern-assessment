@@ -13,7 +13,7 @@ import {
 } from "./ConfigOptionsModel";
 
 // ACTIONS & TASKS CLASSES DECLARATION
-interface Action {
+export interface Action {
   actionName: string;
   actionDesc: string;
   icon: React.ReactNode;

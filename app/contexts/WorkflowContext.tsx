@@ -1,6 +1,12 @@
 "use client";
 import { createContext, useContext, useState, ReactNode } from "react";
 import { WorkflowStep } from "../models/WorkflowModel";
+import {
+  ExtractTask,
+  SummariseTask,
+  WriteTask,
+  SearchAction,
+} from "../models/ActionsModel";
 
 // Keeps track of pipeline actions(i.e. tasks, search) added to workflow
 // Controls the ordering of steps as well
@@ -22,9 +28,45 @@ const WorkflowContext = createContext<WorkflowContextType | undefined>(
 export function WorkflowProvider({ children }: { children: ReactNode }) {
   const [workflowPipeline, setWorkflowPipeline] = useState<WorkflowStep[]>([]);
 
-  const addWorkflowStep = (actionName: string) => {};
+  const addWorkflowStep = (actionName: string) => {
+    const newStepIndex = workflowPipeline.length;
+    var actionType = undefined;
 
-  const deleteWorkflowStep = (stepIndex: number) => {};
+    switch (actionName) {
+      case "Search":
+        actionType = new SearchAction();
+        break;
+      case "Extract":
+        actionType = new ExtractTask();
+        break;
+      case "Summarise":
+        actionType = new SummariseTask();
+        break;
+      case "Write":
+        actionType = new WriteTask();
+        break;
+      default:
+        throw new Error("Action Name not valid.");
+    }
+
+    const newWorkflowStep: WorkflowStep = {
+      index: newStepIndex,
+      action: actionType,
+    };
+
+    setWorkflowPipeline([...workflowPipeline, newWorkflowStep]);
+  };
+
+  // delete workflow step and decrement indices of later steps by 1
+  const deleteWorkflowStep = (stepIndex: number) => {
+    setWorkflowPipeline((prevSteps) =>
+      prevSteps
+        .filter((step) => step.index !== stepIndex)
+        .map((step) =>
+          step.index > stepIndex ? { ...step, index: step.index - 1 } : step,
+        ),
+    );
+  };
 
   const updateWorkflowStepConfigs = (updatedWorkflowStep: WorkflowStep) => {};
 

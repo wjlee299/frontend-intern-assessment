@@ -1,13 +1,16 @@
 "use client"
 import TriggerScheduleBox from "../workflow/TriggerScheduleBox";
 import { useConfigMenuContext } from "@/app/contexts/ConfigMenuContext";
+import { useWorkflowContext } from "@/app/contexts/WorkflowContext";
 
 const WorkflowSection = () => {
-  const { openConfigMenu, openAddStepMenu } = useConfigMenuContext();
+    const { openConfigMenu, openAddStepMenu } = useConfigMenuContext();
+    const { workflowPipeline } = useWorkflowContext();
 
   return (
     <div className="w-[45%]">
-      <TriggerScheduleBox></TriggerScheduleBox>
+          <TriggerScheduleBox></TriggerScheduleBox>
+          <div>{ JSON.stringify(workflowPipeline)}</div>
 
       {/* for testing config menu context */}
       <div className="flex gap-3">

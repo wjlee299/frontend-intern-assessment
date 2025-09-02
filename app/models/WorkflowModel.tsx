@@ -1,8 +1,7 @@
-import { ConfigOption } from "./ConfigOptionsModel";
+import { Action } from "./ActionsModel";
 
 // WORKFLOW TYPES DECLARATION
-export type WorkflowStep = {
-  index: number;
-  actionName: string;
-  configOptions: ConfigOption[]; // this will be passed to ConfigPanelContextType
-};
+export interface WorkflowStep {
+    index: number;
+    action: Action;
+}
