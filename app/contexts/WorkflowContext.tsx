@@ -28,9 +28,11 @@ const WorkflowContext = createContext<WorkflowContextType | undefined>(
 export function WorkflowProvider({ children }: { children: ReactNode }) {
   const [workflowPipeline, setWorkflowPipeline] = useState<WorkflowStep[]>([]);
 
+  // add new workflow step into pipeline with default config values
   const addWorkflowStep = (actionName: string) => {
     const newStepIndex = workflowPipeline.length;
-    var actionType = undefined;
+      var actionType = undefined;
+      
 
     switch (actionName) {
       case "Search":
@@ -68,12 +70,30 @@ export function WorkflowProvider({ children }: { children: ReactNode }) {
     );
   };
 
-  const updateWorkflowStepConfigs = (updatedWorkflowStep: WorkflowStep) => {};
+  // update entire WorkflowStep object in the pipeline
+  const updateWorkflowStepConfigs = (updatedWorkflowStep: WorkflowStep) => {
+    setWorkflowPipeline((prevSteps) =>
+      prevSteps.map((step) =>
+        step.index === updatedWorkflowStep.index ? updatedWorkflowStep : step,
+      ),
+    );
+  };
 
+  // extract step from pipeline and put it in the new index position
+  // re-number indices so that they stay sequential
   const reorderWorkflowStep = (
     originalStepIndex: number,
     newStepIndex: number,
-  ) => {};
+  ) => {
+    setWorkflowPipeline((prevSteps) => {
+      const updatedPipeline = [...prevSteps];
+
+      const movedStep = updatedPipeline.splice(originalStepIndex, 1);
+      updatedPipeline.splice(newStepIndex, 0, movedStep[0]);
+
+      return updatedPipeline.map((step, idx) => ({ ...step, index: idx }));
+    });
+  };
 
   return (
     <WorkflowContext.Provider

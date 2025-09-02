@@ -1,32 +1,25 @@
-"use client"
+"use client";
 import TriggerScheduleBox from "../workflow/TriggerScheduleBox";
 import { useConfigMenuContext } from "@/app/contexts/ConfigMenuContext";
 import { useWorkflowContext } from "@/app/contexts/WorkflowContext";
+import AddStepBox from "../workflow/AddStepBox";
+import WorkflowStepBox from "../workflow/WorkflowStepBox";
 
 const WorkflowSection = () => {
-    const { openConfigMenu, openAddStepMenu } = useConfigMenuContext();
-    const { workflowPipeline } = useWorkflowContext();
+  const { workflowPipeline } = useWorkflowContext();
 
   return (
-    <div className="w-[45%]">
-          <TriggerScheduleBox></TriggerScheduleBox>
-          <div>{ JSON.stringify(workflowPipeline)}</div>
+    <div className="flex w-[45%] flex-col gap-6">
+      <TriggerScheduleBox></TriggerScheduleBox>
+      {workflowPipeline.map((workflowStep, index) => (
+        <WorkflowStepBox
+          action={workflowStep.action}
+          index={workflowStep.index}
+          key={index}
+        ></WorkflowStepBox>
+      ))}
 
-      {/* for testing config menu context */}
-      <div className="flex gap-3">
-        <button
-          onClick={() => openAddStepMenu()}
-          className="cursor-pointer rounded-xl bg-gray-200 px-8 py-4 hover:bg-gray-300"
-        >
-          Add Step
-        </button>
-        <button
-          onClick={() => openConfigMenu([{ optionName: "Test 1" }, { optionName: "Test 2" }])}
-          className="cursor-pointer rounded-xl bg-gray-200 px-8 py-4 hover:bg-gray-300"
-        >
-          Config Step
-        </button>
-      </div>
+      <AddStepBox></AddStepBox>
     </div>
   );
 };

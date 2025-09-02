@@ -16,6 +16,7 @@ import {
 export interface Action {
   actionName: string;
   actionDesc: string;
+  stepName: string; // string displayed in the pipeline step box
   icon: React.ReactNode;
 }
 
@@ -24,7 +25,8 @@ export class TaskAction implements Action {
   constructor(
     public actionName: string = "Tasks",
     public actionDesc: string = "Add smart automations like extracting and summarising",
-    public icon: React.ReactNode = TaskActionIcon,
+    public stepName: string = "",
+    public icon: React.ReactNode = <TaskActionIcon />,
     public configOptions: ConfigOption[] = [],
   ) {}
 }
@@ -33,32 +35,39 @@ export class SearchAction implements Action {
   constructor(
     public actionName: string = "Search",
     public actionDesc: string = "Get text or data from uploaded repository or web",
-    public icon: React.ReactNode = SearchActionIcon,
+    public stepName: string = "Search from repository or web",
+    public icon: React.ReactNode = <SearchActionIcon />,
     public configOptions: ConfigOption[] = [],
   ) {}
 }
 
 export class ExtractTask extends TaskAction {
   constructor() {
-    super("Extract", "Get data from Word, PDF or PPT files", ExtractTaskIcon, [
-      {
-        optionName: "Prompt",
-        textInput: "",
-        placeholderText: "Write your prompt here.",
-      } as TextConfigOption,
-      {
-        optionName: "Output Format",
-        selectOptions: ["Plain Text", "Comma-Separated Values (CSV)"],
-        selectedOption: "Plain Text",
-      } as SelectConfigOption,
-      {
-        optionName: "Output Length (Word Count)",
-        defaultValue: 150,
-        min: 50,
-        max: 1500,
-        step: 50,
-      } as SliderConfigOption,
-    ]);
+    super(
+      "Extract",
+      "Get data from Word, PDF or PPT files",
+      "Extract relevant content",
+      <ExtractTaskIcon />,
+      [
+        {
+          optionName: "Prompt",
+          textInput: "",
+          placeholderText: "Write your prompt here.",
+        } as TextConfigOption,
+        {
+          optionName: "Output Format",
+          selectOptions: ["Plain Text", "Comma-Separated Values (CSV)"],
+          selectedOption: "Plain Text",
+        } as SelectConfigOption,
+        {
+          optionName: "Output Length (Word Count)",
+          defaultValue: 150,
+          min: 50,
+          max: 1500,
+          step: 50,
+        } as SliderConfigOption,
+      ],
+    );
   }
 }
 
@@ -67,7 +76,8 @@ export class SummariseTask extends TaskAction {
     super(
       "Summarise",
       "Condense text to your preferred length",
-      SummariseTaskIcon,
+      "Summarise text content",
+      <SummariseTaskIcon />,
       [
         {
           optionName: "Summary Approach",
@@ -93,24 +103,30 @@ export class SummariseTask extends TaskAction {
 
 export class WriteTask extends TaskAction {
   constructor() {
-    super("Write", "Draft sentences, paragraphs or sections", WriteTaskIcon, [
-      {
-        optionName: "Prompt",
-        textInput: "",
-        placeholderText: "Write your prompt here.",
-      } as TextConfigOption,
-      {
-        optionName: "Tone",
-        selectOptions: ["Professional", "Formal", "Casual", "Informative"],
-        selectedOption: "Professional",
-      } as SelectConfigOption,
-      {
-        optionName: "Output Length (Word Count)",
-        defaultValue: 150,
-        min: 50,
-        max: 1500,
-        step: 50,
-      } as SliderConfigOption,
-    ]);
+    super(
+      "Write",
+      "Draft sentences, paragraphs or sections",
+      "Write text content",
+      <WriteTaskIcon />,
+      [
+        {
+          optionName: "Prompt",
+          textInput: "",
+          placeholderText: "Write your prompt here.",
+        } as TextConfigOption,
+        {
+          optionName: "Tone",
+          selectOptions: ["Professional", "Formal", "Casual", "Informative"],
+          selectedOption: "Professional",
+        } as SelectConfigOption,
+        {
+          optionName: "Output Length (Word Count)",
+          defaultValue: 150,
+          min: 50,
+          max: 1500,
+          step: 50,
+        } as SliderConfigOption,
+      ],
+    );
   }
 }
