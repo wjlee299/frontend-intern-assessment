@@ -31,3 +31,5 @@ export interface CheckboxConfigOption extends ConfigOption {
   max: number;
   step: number;
 }
+
+export const ScheduleConfigOptions = []

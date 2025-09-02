@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import MenuTemplate from "./MenuTemplate";
 
 const AddStepMenu = () => {
   return (
-    <div>AddStepMenu</div>
-  )
-}
+    <div>
+      <MenuTemplate menuTitle="Add a step"></MenuTemplate>
+    </div>
+  );
+};
 
-export default AddStepMenu
+export default AddStepMenu;

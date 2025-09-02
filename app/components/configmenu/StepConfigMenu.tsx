@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import MenuTemplate from "./MenuTemplate";
 
 const StepConfigMenu = () => {
   return (
-    <div>StepConfigMenu</div>
-  )
-}
+    <div>
+      <MenuTemplate menuTitle="Step Configuration"></MenuTemplate>
+    </div>
+  );
+};
 
-export default StepConfigMenu
+export default StepConfigMenu;
