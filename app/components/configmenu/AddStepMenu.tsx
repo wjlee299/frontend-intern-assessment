@@ -24,10 +24,10 @@ const AddStepMenu = () => {
         </div>
         <div className="flex gap-3">
           <button
-            onClick={() => deleteWorkflowStep(1)}
+            onClick={() => deleteWorkflowStep(0)}
             className="rounded-lg bg-red-100 p-4"
           >
-            Delete Task at index 1
+            Delete Task at index 0
           </button>
           <button
             onClick={() => reorderWorkflowStep(1, 3)}

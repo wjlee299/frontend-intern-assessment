@@ -196,17 +196,31 @@ body {
 
 .connector-wrapper {
   position: relative;
-  z-index: 0; 
+  z-index: 0;
 }
 
 .connector-wrapper::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 50%; 
+  left: 50%;
   transform: translateX(-50%);
   width: 2.5px;
-  height: 98%; 
-  background: var(--extended-dark-blue-100); 
+  height: 98%;
+  background: var(--extended-dark-blue-100);
   z-index: -1;
+}
+
+.drag-handle {
+  visibility: visible;
+}
+
+.no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }

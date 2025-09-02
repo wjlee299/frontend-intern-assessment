@@ -33,12 +33,18 @@ importers:
       '@types/react-dom':
         specifier: ^19
         version: 19.1.9(@types/react@19.1.12)
+      '@types/sortablejs':
+        specifier: ^1.15.8
+        version: 1.15.8
       prettier:
         specifier: ^3.6.2
         version: 3.6.2
       prettier-plugin-tailwindcss:
         specifier: ^0.6.14
         version: 0.6.14(prettier@3.6.2)
+      sortablejs:
+        specifier: ^1.15.6
+        version: 1.15.6
       tailwindcss:
         specifier: ^4
         version: 4.1.12
@@ -987,6 +993,9 @@ packages:
   '@types/react@19.1.12':
     resolution: {integrity: sha512-cMoR+FoAf/Jyq6+Df2/Z41jISvGZZ2eTlnsaJRptmZ76Caldwy1odD4xTr/gNV9VLj0AWgg/nmkevIyUfIIq5w==}
 
+  '@types/sortablejs@1.15.8':
+    resolution: {integrity: sha512-b79830lW+RZfwaztgs1aVPgbasJ8e7AXtZYHTELNXZPsERt4ymJdjV4OccDbHQAvHrCcFpbF78jkm0R6h/pZVg==}
+
   argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
 
@@ -1483,6 +1492,9 @@ packages:
 
   snake-case@3.0.4:
     resolution: {integrity: sha512-LAOh4z89bGQvl9pFfNF8V146i7o7/CqFPbqzYgP+yYzDIDeS9HaNFtXABamRW+AQzEVODcvE79ljJ+8a9YSdMg==}
+
+  sortablejs@1.15.6:
+    resolution: {integrity: sha512-aNfiuwMEpfBM/CN6LY0ibyhxPfPbyFeBTYJKCvzkJ2GkUpazIt3H+QIPAMHwqQ7tMKaHz1Qj+rJJCqljnf4p3A==}
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
@@ -2626,6 +2638,8 @@ snapshots:
     dependencies:
       csstype: 3.1.3
 
+  '@types/sortablejs@1.15.8': {}
+
   argparse@2.0.1: {}
 
   babel-plugin-polyfill-corejs2@0.4.14(@babel/core@7.28.3):
@@ -3050,6 +3064,8 @@ snapshots:
     dependencies:
       dot-case: 3.0.4
       tslib: 2.8.1
+
+  sortablejs@1.15.6: {}
 
   source-map-js@1.2.1: {}
 

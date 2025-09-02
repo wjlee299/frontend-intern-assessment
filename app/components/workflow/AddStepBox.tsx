@@ -7,9 +7,9 @@ import PlusIcon from "@/app/assets/icons/plus.svg";
 
 const AddStepBox = () => {
   const { workflowPipeline } = useWorkflowContext();
-  const { isOpen, openAddStepMenu } = useConfigMenuContext();
+  const { menuType, openAddStepMenu } = useConfigMenuContext();
   return (
-    <div className="w-full flex justify-center">
+    <div className="flex w-full justify-center">
       {workflowPipeline.length == 0 ? (
         <div className="w-full rounded-lg border border-neutral-n30 bg-neutral-n0 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.15)]">
           <div className="flex w-full justify-center py-4">
@@ -17,7 +17,10 @@ const AddStepBox = () => {
           </div>
         </div>
       ) : (
-                  <div onClick={openAddStepMenu} className={`h-8 w-8 p-1 rounded-lg border border-neutral-n30 cursor-pointer transition-colors duration-500 ${isOpen ? "bg-extended-dark-blue-100 text-neutral-n0": "bg-neutral-n0 text-neutral-n500"}`}>
+        <div
+          onClick={openAddStepMenu}
+          className={`h-8 w-8 cursor-pointer rounded-lg border border-neutral-n30 p-1 transition-colors duration-500 ${menuType == "addStep" ? "bg-extended-dark-blue-100 text-neutral-n0" : "bg-neutral-n0 text-neutral-n500"}`}
+        >
           <PlusIcon></PlusIcon>
         </div>
       )}

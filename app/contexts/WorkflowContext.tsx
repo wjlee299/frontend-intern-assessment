@@ -51,7 +51,8 @@ export function WorkflowProvider({ children }: { children: ReactNode }) {
         throw new Error("Action Name not valid.");
     }
 
-    const newWorkflowStep: WorkflowStep = {
+      const newWorkflowStep: WorkflowStep = {
+        id: crypto.randomUUID(),
       index: newStepIndex,
       action: actionType,
     };
