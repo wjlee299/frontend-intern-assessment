@@ -32,7 +32,7 @@ const WorkflowSection = () => {
   }, []);
 
   return (
-    <div className="connector-wrapper relative flex h-fit w-[45%] flex-col gap-6">
+    <div className="connector-wrapper relative flex h-fit w-[45%] flex-col">
       <TriggerScheduleBox></TriggerScheduleBox>
       <div className="flex flex-col gap-6" ref={pipelineListRef}>
         {workflowPipeline.map((workflowStep) => (

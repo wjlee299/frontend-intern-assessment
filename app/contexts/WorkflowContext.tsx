@@ -19,6 +19,7 @@ interface WorkflowContextType {
     originalStepIndex: number,
     newStepIndex: number,
   ) => void;
+  clearWorkflowPipeline: () => void;
 }
 
 const WorkflowContext = createContext<WorkflowContextType | undefined>(
@@ -31,8 +32,7 @@ export function WorkflowProvider({ children }: { children: ReactNode }) {
   // add new workflow step into pipeline with default config values
   const addWorkflowStep = (actionName: string) => {
     const newStepIndex = workflowPipeline.length;
-      var actionType = undefined;
-      
+    var actionType = undefined;
 
     switch (actionName) {
       case "Search":
@@ -51,8 +51,8 @@ export function WorkflowProvider({ children }: { children: ReactNode }) {
         throw new Error("Action Name not valid.");
     }
 
-      const newWorkflowStep: WorkflowStep = {
-        id: crypto.randomUUID(),
+    const newWorkflowStep: WorkflowStep = {
+      id: crypto.randomUUID(),
       index: newStepIndex,
       action: actionType,
     };
@@ -96,6 +96,10 @@ export function WorkflowProvider({ children }: { children: ReactNode }) {
     });
   };
 
+  const clearWorkflowPipeline = () => {
+    setWorkflowPipeline([])
+  };
+
   return (
     <WorkflowContext.Provider
       value={{
@@ -104,6 +108,7 @@ export function WorkflowProvider({ children }: { children: ReactNode }) {
         deleteWorkflowStep,
         updateWorkflowStepConfigs,
         reorderWorkflowStep,
+        clearWorkflowPipeline,
       }}
     >
       {children}

@@ -1,5 +1,4 @@
 "use client";
-
 import AddBtn from "../buttons/AddBtn";
 import { useWorkflowContext } from "@/app/contexts/WorkflowContext";
 import { useConfigMenuContext } from "@/app/contexts/ConfigMenuContext";
@@ -7,7 +6,7 @@ import PlusIcon from "@/app/assets/icons/plus.svg";
 
 const AddStepBox = () => {
   const { workflowPipeline } = useWorkflowContext();
-  const { menuType, openAddStepMenu } = useConfigMenuContext();
+  const { isOpen, menuType, openAddStepMenu } = useConfigMenuContext();
   return (
     <div className="flex w-full justify-center">
       {workflowPipeline.length == 0 ? (
@@ -19,7 +18,7 @@ const AddStepBox = () => {
       ) : (
         <div
           onClick={openAddStepMenu}
-          className={`h-8 w-8 cursor-pointer rounded-lg border border-neutral-n30 p-1 transition-colors duration-500 ${menuType == "addStep" ? "bg-extended-dark-blue-100 text-neutral-n0" : "bg-neutral-n0 text-neutral-n500"}`}
+          className={`mt-6 h-8 w-8 cursor-pointer rounded-lg border border-neutral-n30 p-1 transition-colors hover:bg-extended-dark-blue-10 ${menuType == "addStep" && isOpen ? "bg-extended-dark-blue-100 text-neutral-n0" : "bg-neutral-n0 text-neutral-n500"}`}
         >
           <PlusIcon></PlusIcon>
         </div>

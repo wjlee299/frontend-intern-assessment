@@ -13,7 +13,7 @@ const WorkflowStepBox: React.FC<WorkflowStep> = ({ id, index, action }) => {
       onClick={() => {
         openConfigMenu(action.configOptions);
       }}
-      className="group relative w-full cursor-pointer rounded-lg border border-neutral-n30 bg-neutral-n0 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.15)]"
+      className="group relative w-full cursor-pointer rounded-lg border border-neutral-n30 bg-neutral-n0 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.15)] "
     >
       <button className="drag-handle cursor-pointer absolute top-0 bottom-0 left-2 my-auto h-6 w-6 text-neutral-n0 group-hover:text-neutral-n50 active:text-neutral-n200">
         <GripIcon></GripIcon>
