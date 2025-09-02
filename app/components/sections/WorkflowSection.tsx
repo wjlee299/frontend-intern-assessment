@@ -1,10 +1,29 @@
-import React from "react";
+"use client"
 import TriggerScheduleBox from "../workflow/TriggerScheduleBox";
+import { useConfigMenuContext } from "@/app/contexts/ConfigMenuContext";
 
 const WorkflowSection = () => {
+  const { openConfigMenu, openAddStepMenu } = useConfigMenuContext();
+
   return (
     <div className="w-[45%]">
       <TriggerScheduleBox></TriggerScheduleBox>
+
+      {/* for testing config menu context */}
+      <div className="flex gap-3">
+        <button
+          onClick={() => openAddStepMenu()}
+          className="cursor-pointer rounded-xl bg-gray-200 px-8 py-4 hover:bg-gray-300"
+        >
+          Add Step
+        </button>
+        <button
+          onClick={() => openConfigMenu([{ optionName: "Test 1" }, { optionName: "Test 2" }])}
+          className="cursor-pointer rounded-xl bg-gray-200 px-8 py-4 hover:bg-gray-300"
+        >
+          Config Step
+        </button>
+      </div>
     </div>
   );
 };

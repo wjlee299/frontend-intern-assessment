@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, ReactNode } from "react";
 import { ConfigOption } from "../models/ConfigOptionsModel";
 
 type MenuType = "addStep" | "stepConfig";
@@ -40,4 +40,12 @@ export function ConfigMenuProvider({ children }: { children: ReactNode }) {
       {children}
     </ConfigMenuContext.Provider>
   );
+}
+
+export function useConfigMenuContext() {
+  const context = useContext(ConfigMenuContext);
+  if (!context) {
+    throw new Error("useConfigMenuContext must be used within ConfigMenuProvider");
+  }
+  return context;
 }

@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, ReactNode } from "react";
 import { WorkflowStep } from "../models/WorkflowModel";
 
 // Keeps track of pipeline actions(i.e. tasks, search) added to workflow
@@ -46,4 +46,12 @@ export function WorkflowProvider({ children }: { children: ReactNode }) {
       {children}
     </WorkflowContext.Provider>
   );
+}
+
+export function useWorkflowContext() {
+  const context = useContext(WorkflowContext);
+  if (!context) {
+    throw new Error("useWorkflowContext must be used within WorkflowProvider");
+  }
+  return context;
 }
