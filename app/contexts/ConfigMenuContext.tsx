@@ -46,6 +46,7 @@ export function ConfigMenuProvider({ children }: { children: ReactNode }) {
   };
 
   const closeMenu = () => {
+    setCurrStep(null);
     setIsOpen(false);
   };
 

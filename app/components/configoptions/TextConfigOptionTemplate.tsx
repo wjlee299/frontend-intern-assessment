@@ -15,6 +15,7 @@ const isTextOption = (opt: ConfigOption) => {
 
 const TextConfigOptionTemplate: React.FC<TextConfigOption> = ({
   optionName,
+  textInput,
   placeholderText,
 }) => {
   const [userInput, setUserInput] = useState("");
@@ -32,27 +33,26 @@ const TextConfigOptionTemplate: React.FC<TextConfigOption> = ({
   useEffect(() => {
     if (currOption) {
       const textOption = currOption as TextConfigOption;
-      setUserInput(textOption.textInput ?? "");
+      setUserInput(textOption.textInput ?? textInput);
     } else {
-      setUserInput("");
+      setUserInput(textInput);
     }
   }, [currOption]);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setUserInput(e.target.value);
     if (currStep) {
-      const updatedStep: WorkflowStep = {
-        ...currStep,
+      updateWorkflowStepConfigs(currStep.index, (prev) => ({
+        ...prev,
         action: {
-          ...currStep.action,
-          configOptions: currStep.action.configOptions.map((opt) =>
+          ...prev.action,
+          configOptions: prev.action.configOptions.map((opt) =>
             opt.optionName === optionName
               ? { ...(opt as TextConfigOption), textInput: e.target.value }
               : opt,
           ),
         },
-      };
-      updateWorkflowStepConfigs(updatedStep);
+      }));
     }
   };
 

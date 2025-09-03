@@ -18,7 +18,7 @@ const AddStepBox = () => {
       ) : (
         <div
           onClick={openAddStepMenu}
-          className={`mt-6 h-8 w-8 rounded-lg border border-neutral-n30 p-1 transition-colors ${menuType == "addStep" && isOpen ? "cursor-default bg-extended-dark-blue-100 text-neutral-n0" : "cursor-pointer bg-neutral-n0 text-neutral-n500 hover:bg-extended-dark-blue-10"}`}
+          className={`mt-6 h-8 w-8 rounded-lg border border-neutral-n30 p-1 transition-colors ${menuType == "addStep" && isOpen ? "cursor-default bg-extended-dark-blue-100 text-neutral-n0" : "cursor-pointer bg-neutral-n0 text-neutral-n500 hover:border-extended-dark-blue-75"}`}
         >
           <PlusIcon></PlusIcon>
         </div>

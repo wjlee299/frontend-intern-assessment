@@ -41,32 +41,34 @@ const SelectConfigOptionTemplate: React.FC<SelectConfigOption> = ({
   useEffect(() => {
     if (currOption) {
       const selectOption = currOption as SelectConfigOption;
-      setUserInput(selectOption.selectedOption ?? "");
+      setUserInput(selectOption.selectedOption ?? selectedOption);
     } else {
-      setUserInput("");
+      setUserInput(selectedOption);
     }
   }, [currOption]);
 
   const onChangeHandler = (value: string) => {
     setUserInput(value);
     if (currStep) {
-      const updatedStep: WorkflowStep = {
-        ...currStep,
+      updateWorkflowStepConfigs(currStep.index, (prev) => ({
+        ...prev,
         action: {
-          ...currStep.action,
-          configOptions: currStep.action.configOptions.map((opt) =>
+          ...prev.action,
+          configOptions: prev.action.configOptions.map((opt) =>
             opt.optionName === optionName
               ? { ...(opt as SelectConfigOption), selectedOption: value }
               : opt,
           ),
         },
-      };
-      updateWorkflowStepConfigs(updatedStep);
+      }));
     }
   };
   return (
     <div>
-      <Select value={userInput} onValueChange={(value) => onChangeHandler(value)}>
+      <Select
+        value={userInput}
+        onValueChange={(value) => onChangeHandler(value)}
+      >
         <SelectTrigger className="w-full cursor-pointer px-4 py-6">
           <SelectValue placeholder={optionName} />
         </SelectTrigger>

@@ -15,7 +15,10 @@ interface WorkflowContextType {
   addWorkflowStep: (actionName: string) => void; // creates a new workflow step with default config
   duplicateWorkflowStep: (inputWorkflowStep: WorkflowStep) => void;
   deleteWorkflowStep: (stepId: string) => void;
-  updateWorkflowStepConfigs: (updatedWorkflowStep: WorkflowStep) => void;
+  updateWorkflowStepConfigs: (
+    stepIndex: number,
+    updater: (prev: WorkflowStep) => WorkflowStep,
+  ) => void;
   reorderWorkflowStep: (
     originalStepIndex: number,
     newStepIndex: number,
@@ -77,7 +80,7 @@ export function WorkflowProvider({ children }: { children: ReactNode }) {
     });
   };
 
-  // delete workflow step and decrement indices of later steps by 1
+  // delete workflow step and renumber indices
   const deleteWorkflowStep = (stepId: string) => {
     setWorkflowPipeline((prevSteps) =>
       prevSteps
@@ -87,11 +90,12 @@ export function WorkflowProvider({ children }: { children: ReactNode }) {
   };
 
   // update entire WorkflowStep object in the pipeline
-  const updateWorkflowStepConfigs = (updatedWorkflowStep: WorkflowStep) => {
-    setWorkflowPipeline((prevSteps) =>
-      prevSteps.map((step) =>
-        step.index === updatedWorkflowStep.index ? updatedWorkflowStep : step,
-      ),
+  const updateWorkflowStepConfigs = (
+    stepIndex: number,
+    updater: (prev: WorkflowStep) => WorkflowStep,
+  ) => {
+    setWorkflowPipeline((prev) =>
+      prev.map((step) => (step.index === stepIndex ? updater(step) : step)),
     );
   };
 

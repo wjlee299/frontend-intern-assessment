@@ -45,18 +45,17 @@ const SliderConfigOptionTemplate: React.FC<SliderConfigOption> = ({
   const onChangeHandler = (sliderVal: number) => {
     setUserInput(sliderVal);
     if (currStep) {
-      const updatedStep: WorkflowStep = {
-        ...currStep,
+      updateWorkflowStepConfigs(currStep.index, (prev) => ({
+        ...prev,
         action: {
-          ...currStep.action,
-          configOptions: currStep.action.configOptions.map((opt) =>
+          ...prev.action,
+          configOptions: prev.action.configOptions.map((opt) =>
             opt.optionName === optionName
               ? { ...(opt as SliderConfigOption), sliderValue: sliderVal }
               : opt,
           ),
         },
-      };
-      updateWorkflowStepConfigs(updatedStep);
+      }));
     }
   };
 
