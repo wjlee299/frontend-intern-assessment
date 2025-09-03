@@ -54,7 +54,7 @@ const StepItem: React.FC<StepItemProps> = ({ stepNode }) => {
       className="flex w-full cursor-pointer items-center group justify-between pl-5 pr-3 py-5 transition-colors hover:bg-neutral-n10"
     >
       <div className="flex w-fit items-center gap-4">
-        <div className="h-[34px] w-[34px] shrink-0 rounded border border-neutral-n500 text-neutral-n500">
+        <div className="h-[30px] w-[30px] md:h-[34px] md:w-[34px] shrink-0 rounded border border-neutral-n500 text-neutral-n500">
           {stepNode.stepIcon}
         </div>
         <div className="flex flex-col">
@@ -67,7 +67,7 @@ const StepItem: React.FC<StepItemProps> = ({ stepNode }) => {
         </div>
       </div>
       {stepNode.hasSubMenu && (
-        <div className="h-6 w-6 text-neutral-n200 group-hover:text-neutral-n400">
+        <div className="h-5 w-5 md:h-6 md:w-6 text-neutral-n200 group-hover:text-neutral-n400">
           <SubMenuIcon></SubMenuIcon>
         </div>
       )}

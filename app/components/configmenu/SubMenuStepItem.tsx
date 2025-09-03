@@ -26,7 +26,7 @@ const SubMenuStepItem: React.FC<StepItemProps> = ({ stepNode }) => {
       className="flex w-full cursor-pointer items-center justify-between px-5 py-4 transition-colors hover:bg-neutral-n10"
     >
       <div className="flex w-fit items-center gap-4">
-        <div className="h-8 w-8 shrink-0 rounded border border-neutral-n30 text-neutral-n500">
+        <div className="h-7 w-7 md:h-8 md:w-8 shrink-0 rounded border border-neutral-n30 text-neutral-n500">
           {stepNode.stepIcon}
         </div>
         <div className="flex flex-col">

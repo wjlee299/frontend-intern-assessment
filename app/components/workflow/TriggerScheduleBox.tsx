@@ -7,7 +7,7 @@ const TriggerScheduleBox = () => {
         <h1 className="title-03 text-neutral-n300">Trigger</h1>
       </div>
       <div className="flex w-full justify-center rounded-lg py-4">
-        <AddBtn label="Add Schedule" action=""></AddBtn>
+        <AddBtn label="Add Schedule" action="ADDSCHEDULE"></AddBtn>
       </div>
     </div>
   );
