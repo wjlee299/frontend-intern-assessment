@@ -32,99 +32,108 @@ export class SearchAction implements Action {
   constructor(
     public actionName: string = "Search from repository or web",
     public icon: React.ReactNode = <SearchActionIcon />,
-    public configOptions: ConfigOption[] = [],
+    public configOptions: ConfigOption[] = [
+      {
+        optionName: "Prompt",
+        textInput: "",
+        placeholderText: "Write your prompt here.",
+        type: "text",
+      } as TextConfigOption,
+      {
+        optionName: "Depth of Search",
+        selectOptions: ["Quick", "Normal", "Exhaustive"],
+        selectedOption: "Normal",
+        type: "select",
+      } as SelectConfigOption,
+      {
+        optionName: "Output Length (Word Count)",
+        sliderValue: 150,
+        min: 50,
+        max: 1500,
+        step: 50,
+        type: "slider",
+      } as SliderConfigOption,
+    ],
   ) {}
 }
 
 export class ExtractTask extends TaskAction {
   constructor() {
-    super(
-      "Extract relevant content",
-      <ExtractTaskIcon />,
-      [
-        {
-          optionName: "Prompt",
-          textInput: "",
-          placeholderText: "Write your prompt here.",
-          type: "text",
-        } as TextConfigOption,
-        {
-          optionName: "Output Format",
-          selectOptions: ["Plain Text", "Comma-Separated Values (CSV)"],
-          selectedOption: "Plain Text",
-          type: "select",
-        } as SelectConfigOption,
-        {
-          optionName: "Output Length (Word Count)",
-          defaultValue: 150,
-          min: 50,
-          max: 1500,
-          step: 50,
-          type: "slider",
-        } as SliderConfigOption,
-      ],
-    );
+    super("Extract relevant content", <ExtractTaskIcon />, [
+      {
+        optionName: "Prompt",
+        textInput: "",
+        placeholderText: "Write your prompt here.",
+        type: "text",
+      } as TextConfigOption,
+      {
+        optionName: "Output Format",
+        selectOptions: ["Plain Text", "Comma-Separated Values (CSV)"],
+        selectedOption: "Plain Text",
+        type: "select",
+      } as SelectConfigOption,
+      {
+        optionName: "Output Length (Word Count)",
+        sliderValue: 150,
+        min: 50,
+        max: 1500,
+        step: 50,
+        type: "slider",
+      } as SliderConfigOption,
+    ]);
   }
 }
 
 export class SummariseTask extends TaskAction {
   constructor() {
-    super(
-      "Summarise text content",
-      <SummariseTaskIcon />,
-      [
-        {
-          optionName: "Summary Approach",
-          selectOptions: ["Abstract", "Extractive", "Hybrid"],
-          selectedOption: "Abstract",
-          type: "select",
-        } as SelectConfigOption,
-        {
-          optionName: "Tone",
-          selectOptions: ["Professional", "Formal", "Casual", "Informative"],
-          selectedOption: "Professional",
-          type: "select",
-        } as SelectConfigOption,
-        {
-          optionName: "Output Length (Word Count)",
-          defaultValue: 150,
-          min: 50,
-          max: 1500,
-          step: 50,
-          type: "slider",
-        } as SliderConfigOption,
-      ],
-    );
+    super("Summarise text content", <SummariseTaskIcon />, [
+      {
+        optionName: "Summary Approach",
+        selectOptions: ["Abstract", "Extractive", "Hybrid"],
+        selectedOption: "Abstract",
+        type: "select",
+      } as SelectConfigOption,
+      {
+        optionName: "Tone",
+        selectOptions: ["Professional", "Formal", "Casual", "Informative"],
+        selectedOption: "Professional",
+        type: "select",
+      } as SelectConfigOption,
+      {
+        optionName: "Output Length (Word Count)",
+        sliderValue: 150,
+        min: 50,
+        max: 1500,
+        step: 50,
+        type: "slider",
+      } as SliderConfigOption,
+    ]);
   }
 }
 
 export class WriteTask extends TaskAction {
   constructor() {
-    super(
-      "Write text content",
-      <WriteTaskIcon />,
-      [
-        {
-          optionName: "Prompt",
-          textInput: "",
-          placeholderText: "Write your prompt here.",
-          type: "text",
-        } as TextConfigOption,
-        {
-          optionName: "Tone",
-          selectOptions: ["Professional", "Formal", "Casual", "Informative"],
-          selectedOption: "Professional",
-          type: "select",
-        } as SelectConfigOption,
-        {
-          optionName: "Output Length (Word Count)",
-          defaultValue: 150,
-          min: 50,
-          max: 1500,
-          step: 50,
-          type: "slider",
-        } as SliderConfigOption,
-      ],
-    );
+    super("Write text content", <WriteTaskIcon />, [
+      {
+        optionName: "Prompt",
+        textInput: "",
+        placeholderText: "Write your prompt here.",
+        type: "text",
+      } as TextConfigOption,
+      {
+        optionName: "Tone",
+        selectOptions: ["Professional", "Formal", "Casual", "Informative"],
+        selectedOption: "Professional",
+        type: "select",
+      } as SelectConfigOption,
+      {
+        optionName: "Output Length (Word Count)",
+        sliderValue: 150,
+        min: 50,
+        max: 1500,
+        step: 50,
+        type: "slider",
+      } as SliderConfigOption,
+    ]);
   }
 }

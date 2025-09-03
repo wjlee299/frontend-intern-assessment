@@ -6,7 +6,7 @@ import WorkflowSection from "./components/sections/WorkflowSection";
 export default function Home() {
   return (
     <main className="no-select flex h-screen w-screen items-center justify-center">
-      <div className="relative flex h-[80%] w-[80%] flex-col rounded-lg border border-neutral-n30 lg:w-[70%]">
+      <div className="relative flex h-[80%] w-[90%]  lg:w-[80%] xl:w-[75%] flex-col rounded-lg border border-neutral-n30 2xl:w-[70%]">
         <MenuCloserSection></MenuCloserSection>
         <MainSectionHeader></MainSectionHeader>
         <div className="flex justify-center overflow-y-scroll rounded-b-lg p-8">

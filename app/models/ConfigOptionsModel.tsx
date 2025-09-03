@@ -7,7 +7,7 @@ export interface ConfigOption {
 
 // the different kinds of config menu options
 export interface TextConfigOption extends ConfigOption {
-    textInput: string;
+  textInput: string;
   placeholderText: string;
 }
 
@@ -21,7 +21,7 @@ export interface ToggleConfigOption extends ConfigOption {
 }
 
 export interface SliderConfigOption extends ConfigOption {
-  defaultValue: number;
+  sliderValue: number;
   min: number;
   max: number;
   step: number;
@@ -32,4 +32,4 @@ export interface CheckboxConfigOption extends ConfigOption {
   selectedOptions: string[];
 }
 
-export const ScheduleConfigOptions = []
+export const ScheduleConfigOptions = [];

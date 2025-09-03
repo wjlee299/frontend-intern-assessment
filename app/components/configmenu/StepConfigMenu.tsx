@@ -56,14 +56,14 @@ const StepConfigMenu = () => {
                 //       {...toggleOption}
                 //     ></ToggleConfigOptionTemplate>
                 //   );
-                // case "slider":
-                //   const sliderOption = option as SliderConfigOption;
-                //   return (
-                //     <SliderConfigOptionTemplate
-                //       key={sliderOption.optionName}
-                //       {...sliderOption}
-                //     ></SliderConfigOptionTemplate>
-                //   );
+                case "slider":
+                  const sliderOption = option as SliderConfigOption;
+                  return (
+                    <SliderConfigOptionTemplate
+                      key={sliderOption.optionName}
+                      {...sliderOption}
+                    ></SliderConfigOptionTemplate>
+                  );
 
                 default:
                   return <div key={option.optionName}></div>;

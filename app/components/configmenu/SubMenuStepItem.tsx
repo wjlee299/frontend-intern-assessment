@@ -39,7 +39,7 @@ const SubMenuStepItem: React.FC<StepItemProps> = ({ stepNode }) => {
         </div>
       </div>
       {stepNode.hasSubMenu && (
-        <div className="h-7 w-7">
+        <div className="h-7 w-7 shrink-0">
           <SubMenuIcon></SubMenuIcon>
         </div>
       )}
