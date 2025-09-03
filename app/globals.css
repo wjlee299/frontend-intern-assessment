@@ -250,9 +250,6 @@ body {
   --font-shrink-2: 0.2rem;
 }
 
-@media (max-width: 1280px) { 
-
-}
 
 @media (max-width: 1280px) {
   /* --- Display --- */
@@ -446,6 +443,10 @@ textarea {
 
 .card-shadow {
   @apply border border-neutral-n30 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.15)];
+}
+
+.schedule-freq-btn {
+  @apply  p-3 w-full rounded font-semibold hover:text-neutral-n300 cursor-pointer transition-colors;
 }
 
 .dark {
