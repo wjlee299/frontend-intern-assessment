@@ -10,7 +10,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { WorkflowStep } from "@/app/models/WorkflowModel";
 import { useState, useEffect, useMemo } from "react";
 import { useConfigMenuContext } from "@/app/contexts/ConfigMenuContext";
 import { useWorkflowContext } from "@/app/contexts/WorkflowContext";

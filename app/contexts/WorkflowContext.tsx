@@ -76,7 +76,7 @@ export function WorkflowProvider({ children }: { children: ReactNode }) {
       const updatedPipeline = [...prevSteps];
       updatedPipeline.splice(newStepIndex, 0, newWorkflowStep);
 
-      return updatedPipeline.map((step, idx) => ({ ...step, index: idx }));
+      return updatedPipeline.map((step, idx) => ({ ...step, index: idx + 1 }));
     });
   };
 
@@ -85,7 +85,7 @@ export function WorkflowProvider({ children }: { children: ReactNode }) {
     setWorkflowPipeline((prevSteps) =>
       prevSteps
         .filter((step) => step.id !== stepId)
-        .map((step, idx) => ({ ...step, index: idx })),
+        .map((step, idx) => ({ ...step, index: idx  + 1 })),
     );
   };
 
@@ -111,7 +111,7 @@ export function WorkflowProvider({ children }: { children: ReactNode }) {
       const movedStep = updatedPipeline.splice(originalStepIndex, 1);
       updatedPipeline.splice(newStepIndex, 0, movedStep[0]);
 
-      return updatedPipeline.map((step, idx) => ({ ...step, index: idx }));
+      return updatedPipeline.map((step, idx) => ({ ...step, index: idx + 1 }));
     });
   };
 

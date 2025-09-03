@@ -6,7 +6,6 @@ import { ConfigOption } from "@/app/models/ConfigOptionsModel";
 import { useState, useEffect, useMemo } from "react";
 import { useConfigMenuContext } from "@/app/contexts/ConfigMenuContext";
 import { useWorkflowContext } from "@/app/contexts/WorkflowContext";
-import { WorkflowStep } from "@/app/models/WorkflowModel";
 
 // check option type
 const isSliderOption = (opt: ConfigOption) => {

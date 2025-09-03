@@ -29,7 +29,7 @@ const WorkflowStepBox: React.FC<WorkflowStep> = ({ id, index, action }) => {
     <div
       className={`group relative w-full cursor-pointer rounded-lg bg-neutral-n0 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.15)] transition-all duration-300 ${currStep?.id == id ? "border border-extended-dark-blue-50" : "border border-neutral-n30"}`}
     >
-      <button className="drag-handle absolute top-0 bottom-0 left-2 my-auto h-6 w-6 cursor-pointer text-neutral-n0 group-hover:text-neutral-n50 active:text-neutral-n200">
+      <button className="drag-handle absolute top-0 bottom-0 left-0.5 my-auto h-5 w-5 cursor-pointer text-neutral-n0 group-hover:text-neutral-n50 active:text-neutral-n50 hover:text-neutral-n200 transition-colors">
         <GripIcon></GripIcon>
       </button>
       <div
@@ -46,7 +46,7 @@ const WorkflowStepBox: React.FC<WorkflowStep> = ({ id, index, action }) => {
       </div>
       <button
         onClick={() => setOpenPopUp((prev) => !prev)}
-        className="absolute top-0 right-2 bottom-0 my-auto h-5 w-5 cursor-pointer text-neutral-n0 group-hover:text-neutral-n50 hover:text-neutral-n200 active:text-neutral-n200"
+        className="absolute top-0 right-1 bottom-0 my-auto transition-colors h-5 w-5 cursor-pointer text-neutral-n0 group-hover:text-neutral-n50 hover:text-neutral-n200 active:text-neutral-n200"
       >
         <EllipsisIcon></EllipsisIcon>
       </button>

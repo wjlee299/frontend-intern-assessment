@@ -5,7 +5,6 @@ import { Label } from "@/components/ui/label";
 import { TextConfigOption } from "@/app/models/ConfigOptionsModel";
 import { useConfigMenuContext } from "@/app/contexts/ConfigMenuContext";
 import { useWorkflowContext } from "@/app/contexts/WorkflowContext";
-import { WorkflowStep } from "@/app/models/WorkflowModel";
 import { ConfigOption } from "@/app/models/ConfigOptionsModel";
 
 // check option type
