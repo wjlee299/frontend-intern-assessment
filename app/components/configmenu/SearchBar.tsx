@@ -6,7 +6,7 @@ const SearchBar = () => {
 
   return (
     <div className="flex gap-3 border-b border-neutral-n30 p-5 text-neutral-n50">
-      <SearchIcon className="h-5 w-5"></SearchIcon>
+      <SearchIcon className="h-4 w-4 md:h-5 md:w-5"></SearchIcon>
       <input
         type="text"
         placeholder={`Search ${currNode.menuName}`}
