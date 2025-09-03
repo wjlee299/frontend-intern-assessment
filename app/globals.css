@@ -250,6 +250,19 @@ body {
   --font-shrink-2: 0.2rem;
 }
 
+@media (min-width: 1280px) {
+.title-01 {
+  font-size: 0.2rem; /* 18px */
+  line-height: 1.375rem; /* 22px */
+  font-weight: 500;
+}
+.body-02 {
+  font-size: 0.2rem; /* 16px */
+  line-height: 1.25rem; /* 20px */
+  font-weight: 400;
+}
+}
+
 
 @media (max-width: 1280px) {
   /* --- Display --- */
