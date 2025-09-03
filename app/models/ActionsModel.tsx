@@ -46,11 +46,13 @@ export class ExtractTask extends TaskAction {
           optionName: "Prompt",
           textInput: "",
           placeholderText: "Write your prompt here.",
+          type: "text",
         } as TextConfigOption,
         {
           optionName: "Output Format",
           selectOptions: ["Plain Text", "Comma-Separated Values (CSV)"],
           selectedOption: "Plain Text",
+          type: "select",
         } as SelectConfigOption,
         {
           optionName: "Output Length (Word Count)",
@@ -58,6 +60,7 @@ export class ExtractTask extends TaskAction {
           min: 50,
           max: 1500,
           step: 50,
+          type: "slider",
         } as SliderConfigOption,
       ],
     );
@@ -74,11 +77,13 @@ export class SummariseTask extends TaskAction {
           optionName: "Summary Approach",
           selectOptions: ["Abstract", "Extractive", "Hybrid"],
           selectedOption: "Abstract",
+          type: "select",
         } as SelectConfigOption,
         {
           optionName: "Tone",
           selectOptions: ["Professional", "Formal", "Casual", "Informative"],
           selectedOption: "Professional",
+          type: "select",
         } as SelectConfigOption,
         {
           optionName: "Output Length (Word Count)",
@@ -86,6 +91,7 @@ export class SummariseTask extends TaskAction {
           min: 50,
           max: 1500,
           step: 50,
+          type: "slider",
         } as SliderConfigOption,
       ],
     );
@@ -102,11 +108,13 @@ export class WriteTask extends TaskAction {
           optionName: "Prompt",
           textInput: "",
           placeholderText: "Write your prompt here.",
+          type: "text",
         } as TextConfigOption,
         {
           optionName: "Tone",
           selectOptions: ["Professional", "Formal", "Casual", "Informative"],
           selectedOption: "Professional",
+          type: "select",
         } as SelectConfigOption,
         {
           optionName: "Output Length (Word Count)",
@@ -114,6 +122,7 @@ export class WriteTask extends TaskAction {
           min: 50,
           max: 1500,
           step: 50,
+          type: "slider",
         } as SliderConfigOption,
       ],
     );

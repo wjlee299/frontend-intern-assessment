@@ -32,7 +32,7 @@ const WorkflowStepBox: React.FC<WorkflowStep> = ({ id, index, action }) => {
       </button>
       <div
         onClick={() => {
-          openConfigMenu(action.configOptions);
+          openConfigMenu({ id, index, action });
         }}
         className="body-03 flex w-full items-center gap-4 px-9 py-4 text-neutral-n700"
       >

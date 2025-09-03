@@ -1,9 +1,6 @@
 "use client";
 import { createContext, useContext, useState, ReactNode } from "react";
-import {
-  ConfigOption,
-  ScheduleConfigOptions,
-} from "../models/ConfigOptionsModel";
+import { WorkflowStep } from "../models/WorkflowModel";
 
 type MenuType = "addStep" | "stepConfig" | "scheduleConfig";
 
@@ -12,8 +9,8 @@ type MenuType = "addStep" | "stepConfig" | "scheduleConfig";
 interface ConfigMenuContextType {
   isOpen: boolean;
   menuType: MenuType;
-  configOptions: ConfigOption[];
-  openConfigMenu: (configOptions: ConfigOption[]) => void;
+  currStep: WorkflowStep | null;
+  openConfigMenu: (step: WorkflowStep) => void;
   openAddStepMenu: () => void;
   openScheduleConfigMenu: () => void;
   closeMenu: () => void;
@@ -26,11 +23,11 @@ const ConfigMenuContext = createContext<ConfigMenuContextType | undefined>(
 export function ConfigMenuProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [menuType, setMenuType] = useState<MenuType>("addStep");
-  const [configOptions, setConfigOptions] = useState<ConfigOption[]>([]);
+  const [currStep, setCurrStep] = useState<WorkflowStep | null>(null);
 
-  const openConfigMenu = (configOptions: ConfigOption[]) => {
+  const openConfigMenu = (step: WorkflowStep) => {
     setIsOpen(true);
-    setConfigOptions(configOptions);
+    setCurrStep(step);
     setMenuType("stepConfig");
   };
 
@@ -38,13 +35,13 @@ export function ConfigMenuProvider({ children }: { children: ReactNode }) {
   // changed config options should already be updated to WorkflowContext on change of config
   const openAddStepMenu = () => {
     setIsOpen(true);
-    setConfigOptions([]);
+    setCurrStep(null);
     setMenuType("addStep");
   };
 
   const openScheduleConfigMenu = () => {
     setIsOpen(true);
-    setConfigOptions(ScheduleConfigOptions);
+    setCurrStep(null);
     setMenuType("scheduleConfig");
   };
 
@@ -57,7 +54,7 @@ export function ConfigMenuProvider({ children }: { children: ReactNode }) {
       value={{
         isOpen,
         menuType,
-        configOptions,
+        currStep,
         openConfigMenu,
         openAddStepMenu,
         openScheduleConfigMenu,
