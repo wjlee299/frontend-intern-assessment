@@ -380,6 +380,7 @@ body {
 }
 
 .config-menu {
+  @apply rounded-lg;
   flex: 0 0 0%;
   opacity: 0;
   overflow: hidden;
@@ -393,6 +394,7 @@ body {
 }
 
 .config-menu.open {
+  @apply rounded-lg;
   flex-basis: 45%;
   opacity: 1;
   margin-left: 2rem;

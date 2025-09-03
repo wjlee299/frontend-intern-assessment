@@ -19,7 +19,7 @@ const MenuTemplate: React.FC<MenuTemplateProps> = ({
   const { closeSubMenu } = useStepsTreeContext();
 
   return (
-    <div className="card-shadow w-full rounded-lg bg-neutral-n0 whitespace-nowrap">
+    <div className="w-full rounded-lg bg-neutral-n0 whitespace-nowrap ">
       <div className="flex items-center justify-between border-b border-neutral-n30 px-4 py-4">
         <div className="flex w-fit items-center gap-3">
           {showBackBtn && (
@@ -37,7 +37,7 @@ const MenuTemplate: React.FC<MenuTemplateProps> = ({
           <CrossIcon className="h-6 w-6 rounded-sm p-0.5 text-neutral-n500 transition-colors hover:bg-neutral-n30"></CrossIcon>
         </button>
       </div>
-      <div className="flex w-full flex-col justify-center">{children}</div>
+      <div className="flex w-full flex-col justify-center ">{children}</div>
     </div>
   );
 };
