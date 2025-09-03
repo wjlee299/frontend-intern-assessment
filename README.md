@@ -9,6 +9,9 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) to view webapp.
 
+## Demo
+[View demo on Vercel](https://frontend-intern-assessment-eight.vercel.app/)
+
 ##
 
 # 🚀 Akro – Technical Assessment (Frontend Intern)
