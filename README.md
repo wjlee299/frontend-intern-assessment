@@ -1,3 +1,16 @@
+##
+## Setup & Run
+To run development server:
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view webapp.
+
+##
+
 # 🚀 Akro – Technical Assessment (Frontend Intern)
 
 Hello! We are excited to have you participate in our technical assessment. You will be implementing a simple agentic workflow user interface, which should not take more than 4-6 hours in total.
@@ -81,15 +94,3 @@ Your submission should include:
 ## 🔗 References
 - [🎨 Figma Design File](https://www.figma.com/design/27O0Ob2aNVVTYFXzObHpc3/Frontend-Dev-Technical-Assessment?node-id=0-1&t=xv3EUT8elsW6ZZna-1)
 
-##
-## Setup & Run
-To run development server:
-
-```bash
-pnpm install
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) to view webapp.
-
-## Documentation
