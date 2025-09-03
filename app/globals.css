@@ -336,7 +336,7 @@ body {
 
   /* --- Title --- */
   .title-01 {
-    font-size: calc(1.125rem - 0.2rem);
+    font-size: calc(1.125rem - 0.3rem);
     line-height: calc(1.375rem - var(--font-shrink-2));
   }
   .title-02 {
