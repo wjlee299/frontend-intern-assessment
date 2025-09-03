@@ -29,7 +29,7 @@ export function ScheduleProvider({ children }: { children: ReactNode }) {
   );
 
   const [selectedWeekdays, setSelectedWeekDays] = useState<boolean[]>(
-    new Array<boolean>(3).fill(false),
+    [true, false, false, false, false, false, false],
   );
 
   const toggleWeekday = (idx: number) => {

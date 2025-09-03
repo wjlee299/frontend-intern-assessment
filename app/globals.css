@@ -446,7 +446,7 @@ textarea {
 }
 
 .schedule-freq-btn {
-  @apply  p-3 w-full rounded font-semibold hover:text-neutral-n300 cursor-pointer transition-colors;
+  @apply  p-3 w-full rounded font-semibold transition-colors;
 }
 
 .dark {
