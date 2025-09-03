@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import "../../globals.css";
+
+.popup-menu-item {
+    @apply flex gap-2 bg-neutral-n0 hover:bg-neutral-n10 cursor-pointer w-full py-[0.6rem] pl-[0.6rem] pr-[1.6rem] items-center
+}
+
+.popup-menu-icon {
+    @apply w-4 h-4 text-neutral-n500
+}
+

@@ -9,7 +9,7 @@ export default function Home() {
       <div className="relative flex h-[80%] w-[80%] flex-col rounded-lg border border-neutral-n30 lg:w-[70%]">
         <MenuCloserSection></MenuCloserSection>
         <MainSectionHeader></MainSectionHeader>
-        <div className="flex justify-center overflow-y-scroll rounded-b-lg  p-8">
+        <div className="flex justify-center overflow-y-scroll rounded-b-lg p-8">
           <WorkflowSection></WorkflowSection>
           <MenuSection></MenuSection>
         </div>

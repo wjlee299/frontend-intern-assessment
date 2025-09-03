@@ -13,7 +13,8 @@ import {
 interface WorkflowContextType {
   workflowPipeline: WorkflowStep[];
   addWorkflowStep: (actionName: string) => void; // creates a new workflow step with default config
-  deleteWorkflowStep: (stepIndex: number) => void;
+  duplicateWorkflowStep: (inputWorkflowStep: WorkflowStep) => void;
+  deleteWorkflowStep: (stepId: string) => void;
   updateWorkflowStepConfigs: (updatedWorkflowStep: WorkflowStep) => void;
   reorderWorkflowStep: (
     originalStepIndex: number,
@@ -60,14 +61,28 @@ export function WorkflowProvider({ children }: { children: ReactNode }) {
     setWorkflowPipeline([...workflowPipeline, newWorkflowStep]);
   };
 
+  const duplicateWorkflowStep = (inputWorkflowStep: WorkflowStep) => {
+    const newStepIndex = inputWorkflowStep.index + 1;
+    const newWorkflowStep: WorkflowStep = {
+      id: crypto.randomUUID(),
+      index: newStepIndex,
+      action: inputWorkflowStep.action,
+    };
+
+    setWorkflowPipeline((prevSteps) => {
+      const updatedPipeline = [...prevSteps];
+      updatedPipeline.splice(newStepIndex, 0, newWorkflowStep);
+
+      return updatedPipeline.map((step, idx) => ({ ...step, index: idx }));
+    });
+  };
+
   // delete workflow step and decrement indices of later steps by 1
-  const deleteWorkflowStep = (stepIndex: number) => {
+  const deleteWorkflowStep = (stepId: string) => {
     setWorkflowPipeline((prevSteps) =>
       prevSteps
-        .filter((step) => step.index !== stepIndex)
-        .map((step) =>
-          step.index > stepIndex ? { ...step, index: step.index - 1 } : step,
-        ),
+        .filter((step) => step.id !== stepId)
+        .map((step, idx) => ({ ...step, index: idx })),
     );
   };
 
@@ -97,7 +112,7 @@ export function WorkflowProvider({ children }: { children: ReactNode }) {
   };
 
   const clearWorkflowPipeline = () => {
-    setWorkflowPipeline([])
+    setWorkflowPipeline([]);
   };
 
   return (
@@ -105,6 +120,7 @@ export function WorkflowProvider({ children }: { children: ReactNode }) {
       value={{
         workflowPipeline,
         addWorkflowStep,
+        duplicateWorkflowStep,
         deleteWorkflowStep,
         updateWorkflowStepConfigs,
         reorderWorkflowStep,
