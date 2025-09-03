@@ -49,12 +49,11 @@ const TriggerScheduleBox = () => {
           </div>
         </div>
       )}
-      {!range?.from ||
-        (!range?.to && (
+      {!range?.to  && (
           <div className="flex w-full justify-center rounded-lg py-4">
             <AddBtn label="Add Schedule" action="ADDSCHEDULE"></AddBtn>
           </div>
-        ))}
+        )}
     </div>
   );
 };
