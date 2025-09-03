@@ -39,7 +39,7 @@ const WorkflowStepBox: React.FC<WorkflowStep> = ({ id, index, action }) => {
         className="body-03 flex w-full items-center gap-4 px-9 py-4 text-neutral-n700"
       >
         <h1>{index}</h1>
-        <div className="h-8 w-8 rounded-lg border border-neutral-n30">
+        <div className="h-8 w-8 rounded border border-neutral-n30">
           {action.icon}
         </div>
         <h1>{action.actionName}</h1>
