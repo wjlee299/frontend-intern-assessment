@@ -23,7 +23,7 @@ const WorkflowStepBox: React.FC<WorkflowStep> = ({ id, index, action }) => {
         <div className="h-8 w-8 rounded-lg border border-neutral-n30">
           {action.icon}
         </div>
-        <h1>{action.stepName}</h1>
+        <h1>{action.actionName}</h1>
       </div>
       <button className="absolute top-0 right-2 bottom-0 my-auto h-5 w-5 text-neutral-n0 group-hover:text-neutral-n50 active:text-neutral-n200">
         <EllipsisIcon></EllipsisIcon>

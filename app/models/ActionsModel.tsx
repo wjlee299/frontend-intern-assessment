@@ -14,9 +14,7 @@ import {
 
 // ACTIONS & TASKS CLASSES DECLARATION
 export interface Action {
-  actionName: string;
-  actionDesc: string;
-  stepName: string; // string displayed in the pipeline step box
+  actionName: string; // string displayed in the pipeline step box
   icon: React.ReactNode;
   configOptions: ConfigOption[];
 }
@@ -25,8 +23,6 @@ export interface Action {
 export class TaskAction implements Action {
   constructor(
     public actionName: string = "Tasks",
-    public actionDesc: string = "Add smart automations like extracting and summarising",
-    public stepName: string = "",
     public icon: React.ReactNode = <TaskActionIcon />,
     public configOptions: ConfigOption[] = [],
   ) {}
@@ -34,9 +30,7 @@ export class TaskAction implements Action {
 
 export class SearchAction implements Action {
   constructor(
-    public actionName: string = "Search",
-    public actionDesc: string = "Get text or data from uploaded repository or web",
-    public stepName: string = "Search from repository or web",
+    public actionName: string = "Search from repository or web",
     public icon: React.ReactNode = <SearchActionIcon />,
     public configOptions: ConfigOption[] = [],
   ) {}
@@ -45,8 +39,6 @@ export class SearchAction implements Action {
 export class ExtractTask extends TaskAction {
   constructor() {
     super(
-      "Extract",
-      "Get data from Word, PDF or PPT files",
       "Extract relevant content",
       <ExtractTaskIcon />,
       [
@@ -75,8 +67,6 @@ export class ExtractTask extends TaskAction {
 export class SummariseTask extends TaskAction {
   constructor() {
     super(
-      "Summarise",
-      "Condense text to your preferred length",
       "Summarise text content",
       <SummariseTaskIcon />,
       [
@@ -105,8 +95,6 @@ export class SummariseTask extends TaskAction {
 export class WriteTask extends TaskAction {
   constructor() {
     super(
-      "Write",
-      "Draft sentences, paragraphs or sections",
       "Write text content",
       <WriteTaskIcon />,
       [

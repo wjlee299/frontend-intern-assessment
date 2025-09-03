@@ -175,11 +175,80 @@ body {
   font-weight: 400;
 }
 
+:root {
+  --font-shrink: 0.125rem;
+}
+
+@media (max-width: 1280px) {
+  /* --- Display --- */
+  .display-01 {
+    font-size: calc(2rem - var(--font-shrink));
+    line-height: calc(2.5rem - var(--font-shrink));
+  }
+  .display-02 {
+    font-size: calc(1.75rem - var(--font-shrink));
+    line-height: calc(2rem - var(--font-shrink));
+  }
+  .display-03 {
+    font-size: calc(1.5rem - var(--font-shrink));
+    line-height: calc(1.75rem - var(--font-shrink));
+  }
+  .display-04 {
+    font-size: calc(1.25rem - var(--font-shrink));
+    line-height: calc(1.5rem - var(--font-shrink));
+  }
+
+  /* --- Title --- */
+  .title-01 {
+    font-size: calc(1.125rem - var(--font-shrink));
+    line-height: calc(1.375rem - var(--font-shrink));
+  }
+  .title-02 {
+    font-size: calc(1rem - var(--font-shrink));
+    line-height: calc(1.25rem - var(--font-shrink));
+  }
+  .title-03 {
+    font-size: calc(0.875rem - var(--font-shrink));
+    line-height: calc(1.25rem - var(--font-shrink));
+  }
+  .title-04 {
+    font-size: calc(0.75rem - var(--font-shrink));
+    line-height: calc(1rem - var(--font-shrink));
+  }
+
+  /* --- Body --- */
+  .body-01 {
+    font-size: calc(1.125rem - var(--font-shrink));
+    line-height: calc(1.375rem - var(--font-shrink));
+  }
+  .body-02 {
+    font-size: calc(1rem - var(--font-shrink));
+    line-height: calc(1.25rem - var(--font-shrink));
+  }
+  .body-03 {
+    font-size: calc(0.875rem - var(--font-shrink));
+    line-height: calc(1.25rem - var(--font-shrink));
+  }
+  .body-04 {
+    font-size: calc(0.8125rem - var(--font-shrink));
+    line-height: calc(1.125rem - var(--font-shrink));
+  }
+  .body-05 {
+    font-size: calc(0.75rem - var(--font-shrink));
+    line-height: calc(1rem - var(--font-shrink));
+  }
+  .body-06 {
+    font-size: calc(0.6875rem - var(--font-shrink));
+    line-height: calc(0.875rem - var(--font-shrink));
+  }
+}
+
 .config-menu {
   flex: 0 0 0%;
   opacity: 0;
   overflow: hidden;
   margin-left: 0rem;
+  text-wrap: nowrap;
   white-space: nowrap;
   transition:
     flex-basis 0.8s cubic-bezier(0.44, 0, 0.06, 1),
@@ -191,6 +260,7 @@ body {
   flex-basis: 45%;
   opacity: 1;
   margin-left: 2rem;
+  text-wrap: wrap;
   white-space: normal;
 }
 

@@ -2,11 +2,14 @@
 
 import { ConfigMenuProvider } from "./ConfigMenuContext";
 import { WorkflowProvider } from "./WorkflowContext";
+import { StepsTreeProvider } from "./StepsTreeContext";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <WorkflowProvider>
-      <ConfigMenuProvider>{children}</ConfigMenuProvider>
-    </WorkflowProvider>
+    <StepsTreeProvider>
+      <WorkflowProvider>
+        <ConfigMenuProvider>{children}</ConfigMenuProvider>
+      </WorkflowProvider>
+    </StepsTreeProvider>
   );
 }
