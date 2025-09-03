@@ -35,7 +35,7 @@ export function WorkflowProvider({ children }: { children: ReactNode }) {
 
   // add new workflow step into pipeline with default config values
   const addWorkflowStep = (actionName: string) => {
-    const newStepIndex = workflowPipeline.length;
+    const newStepIndex = workflowPipeline.length + 1;
     var actionType = undefined;
 
     switch (actionName) {
