@@ -11,8 +11,8 @@ const ScheduleConfigMenu = () => {
   return (
     <div>
       <MenuTemplate menuTitle="Set Workflow Schedule">
-        <div className="body-03 flex flex-col items-center gap-2 p-8">
-          <div className="flex w-full justify-between px-4">
+        <div className="body-02 flex flex-col items-center gap-4 p-6 ">
+          <div className="flex w-full flex-col justify-start gap-2 mb-2">
             <div>
               {range?.from ? (
                 <div>
@@ -25,7 +25,7 @@ const ScheduleConfigMenu = () => {
                   </span>
                 </div>
               ) : (
-                "Select Start Date"
+                <span className="text-extended-red-100">Select Start Date</span>
               )}
             </div>
             <div>
@@ -40,7 +40,7 @@ const ScheduleConfigMenu = () => {
                   </span>
                 </div>
               ) : (
-                "Select End Date"
+                <span className="text-extended-red-100">Select End Date</span>
               )}
             </div>
           </div>
@@ -49,7 +49,6 @@ const ScheduleConfigMenu = () => {
             mode="range"
             selected={range}
             onSelect={updateRange}
-            numberOfMonths={2}
             className="rounded-lg border"
           />
 

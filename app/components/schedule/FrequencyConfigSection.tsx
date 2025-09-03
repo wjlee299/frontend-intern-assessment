@@ -7,7 +7,7 @@ const FrequencyConfigSection = () => {
     useScheduleContext();
   return (
     <div className="flex w-full flex-col gap-4 px-3">
-      <div className="body-03 mt-3 flex w-full justify-between gap-5">
+      <div className="body-04 mt-3 flex w-full justify-between gap-5">
         <button
           onClick={() => {
             setFrequency("daily");
@@ -34,14 +34,21 @@ const FrequencyConfigSection = () => {
         </button>
       </div>
       {frequency == "weekly" && (
-        <div className="flex w-full justify-between gap-4">
+        <div className="flex body-04 w-full justify-between overflow-hidden rounded border border-neutral-n30">
           {weekdays.map((day, index) => (
             <div
               onClick={() => {
-                toggleWeekday(index);
+                const numOfSelected = selectedWeekdays.filter(Boolean).length;
+                // so user must at least have 1 weekday selected
+                if (
+                  !selectedWeekdays[index] ||
+                  (selectedWeekdays[index] && numOfSelected > 1)
+                ) {
+                  toggleWeekday(index);
+                }
               }}
               key={index}
-              className={`flex-1 rounded p-2 text-center font-semibold ${selectedWeekdays[index] ? "bg-neutral-n700 text-neutral-n0" : "cursor-pointer bg-neutral-n10 text-neutral-n100 hover:text-neutral-n300"}`}
+              className={`flex-1 border-r border-neutral-n30 p-2 text-center font-semibold cursor-pointer ${selectedWeekdays[index] ? "bg-neutral-n700 text-neutral-n0" : " bg-neutral-n10 text-neutral-n100 hover:text-neutral-n300"}`}
             >
               {day}
             </div>
