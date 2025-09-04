@@ -65,7 +65,7 @@ export function WorkflowProvider({ children }: { children: ReactNode }) {
   };
 
   const duplicateWorkflowStep = (inputWorkflowStep: WorkflowStep) => {
-    const newStepIndex = inputWorkflowStep.index + 1;
+    const newStepIndex = inputWorkflowStep.index;
     const newWorkflowStep: WorkflowStep = {
       id: crypto.randomUUID(),
       index: newStepIndex,
